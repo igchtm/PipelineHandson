@@ -7,25 +7,25 @@ Parameters:
   ArtifactBucketName:
     Description: artifact backet name
     Type: String
-    Default: artifact
+    Default: artifact3
     # Bucket名に大文字は使えない
   CodeBuildBucketName:
     Description: CodeBuild backet name
     Type: String
-    Default: codebuild
+    Default: codebuild3
     # Bucket名に大文字は使えない
   DevApprovalEmail:
     Description: approval email address
     Type: String
-    Default: yagita.takashi+dev@gmail.com
+    Default: 1125hitomi+dev@gmail.com
   StgApprovalEmail:
     Description: approval email address
     Type: String
-    Default: yagita.takashi+stg@gmail.com
+    Default: 1125hitomi+stg@gmail.com
   PrdApprovalEmail:
     Description: approval email address
     Type: String
-    Default: yagita.takashi+prd@gmail.com
+    Default: 1125hitomi+prd@gmail.com
   # Environment Parameters
   StackConfigDev:
     Type: String
@@ -46,11 +46,11 @@ Parameters:
     Default: pipeline-handson
   GithubOwner:
     Type: String
-    Default: rafty
+    Default: htmigc
   GithubOAuthToken:
     Type: String
     NoEcho: true
-    Default: a92c5f1e36ff3b4f097ecb4854ce527cbeae4ff5
+    Default: 08efe1061423e58a0048f7ea57fe06e92e9afb76
     #Default: 1dbf303f38940fe854316e5110a2b89c9843d79b
 
 Resources:

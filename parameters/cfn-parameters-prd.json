@@ -3,7 +3,7 @@
     "System": "ecs-rsc",
     "Stage": "prd",
     "VPCCidrBlock": "10.0.0.0/24",
-    "KeyName": "kdc-poc",
+    "KeyName": "20190531key",
     "InstanceType": "t2.nano"
   }
 }
