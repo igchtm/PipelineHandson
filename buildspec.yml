@@ -1,0 +1,35 @@
+version: 0.1
+
+
+phases:
+  install:
+    commands:
+      - |
+        pip install -U pip
+        pip install -r requirements.txt
+        pip install jsonschema
+  pre_build:
+    commands:
+      - echo "Validating CFN templates"
+      - |
+        for cfn_template in stacks/* master-stack.yml; do
+          echo "Validating CloudFormation template file $cfn_template"
+          aws cloudformation validate-template --template-body file://$cfn_template
+        done
+
+  build:
+    commands:
+      - echo "Copying child stack templates to S3"
+      - |
+        aws cloudformation package \
+          --template-file master-stack.yml \
+          --s3-bucket $S3_BUCKET \
+          --output-template-file packaged.yml
+
+artifacts:
+  files:
+    - packaged.yml
+    - parameters/*
+  discard-paths: yes
+  # zipに含めるファイルのパスを省略するかどうか デフォルトではnoになっている
+  # そのためparameters以下のファイルはルートに置かれる・・・と思われる
